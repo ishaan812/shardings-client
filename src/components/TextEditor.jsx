@@ -47,44 +47,30 @@ const TextEditor = () => {
 
 
     return (
-      // <div id="background-wrap">
-    
       <div className="flex justify-between align-baseline flex-col ">
       <div className="min-h-screen overflow-x-hidden bg-gradient-to-r from-sky-500 to-indigo-500">
         <div><Navbar/></div>
-        <div className="h-80v">
+        <div className="h-75v overflow-x-scroll mt-5">
+
+        {
+            messages.map((message)=>
+              {if(message["Username"]===Username){
+              return(
                 <div id="Recieve Message" className="rounded h-fit text-right text-white mt-10 bg-black ml-96 pr-10 py-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
+                <h2>{message["Username"]}</h2>
+                <div dangerouslySetInnerHTML={{__html: message["Message"]}} />
                 </div> 
+              )}
+              else
+              {return(
                 <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
+                <h2>{message["Username"]}</h2>
+                <div dangerouslySetInnerHTML={{__html: message["Message"]}} />
               </div>
-              <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
-              </div>
-              <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
-              </div>
-              <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
-              </div>
-              <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
-              </div>
-              <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
-              </div>
-              <div id="Send Message" className="rounded h-fit text-left pl-10 py-10 bg-green-400 mr-96 pr-10 mb-5">
-                <h2>message["Username"]</h2>
-                {/* <div dangerouslySetInnerHTML={{__html: message["Message"]}} /> */}
-              </div>
+              )}}
+
+            )
+          }
         </div>
         <div className="absolute bottom-0  justify-evenly pl-5 pr-5 pt-5 flex-col bg-gradient-to-r from-sky-500 to-indigo-500">
         <Editor
@@ -100,9 +86,7 @@ const TextEditor = () => {
           <AiOutlineSend/>
         </button>
         </div>
-        
       </div>
-      
       </div>
     )
 }
