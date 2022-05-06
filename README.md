@@ -4,7 +4,7 @@ This is a basic web groupchat application which uses Firebase, React and NodeJS.
 
 1.TO RUN AND DEPLOY FILE: You will have to install both the backend and the frontend of the application:
 
-https://github.com/ishaan812/shardings-frontent-d/new/main?readme=1
+https://github.com/ishaan812/shardings-client/
 
 Install Frontend: npm i -for packages npm start -to start the react web app
 
