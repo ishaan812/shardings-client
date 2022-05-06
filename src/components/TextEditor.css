@@ -1,0 +1,20 @@
+.wrapper-class {
+    background-color: #292828;
+    padding: 1rem;
+    width: 96vw;
+    color:white;
+  }
+  .editor-class {
+    background-color: #292828;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    color:white;
+  }
+  .toolbar-class {
+    background-color: #292828;
+    color:white;
+  }
+
+  &::-webkit-scrollbar{
+    display:none;
+  }
