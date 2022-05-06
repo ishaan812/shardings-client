@@ -1,13 +1,15 @@
 .wrapper-class {
     background-color: #292828;
     padding: 1rem;
-    width: 96vw;
-    color:white;
+    width: 95.3vw;
+    /* color:white; */
   }
   .editor-class {
     background-color: #292828;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
+    /* margin-bottom: 0px; */
     padding-left: 1rem;
+    
     color:white;
   }
   .toolbar-class {
@@ -18,3 +20,7 @@
   &::-webkit-scrollbar{
     display:none;
   }
+
+  
+  
+  
