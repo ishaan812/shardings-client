@@ -20,8 +20,15 @@ const TextEditor = () => {
       axios.get("http://localhost:5000/get/"+id)
       .then(res=>{
         Setmessages(res.data);
-        console.log(messages);
+        console.log("YEs");
+        // console.log(messages);
       });
+      setInterval(()=>{axios.get("http://localhost:5000/get/"+id)
+      .then(res=>{
+        Setmessages(res.data);
+        console.log("YEs");
+        // console.log(messages);
+      })},10000);
     },[])
     
 
@@ -81,9 +88,9 @@ const TextEditor = () => {
           toolbarClassName="toolbar-class"
           editorClassName="editor-class mt-4 border pb-2"
           placeholder="Enter message here"
-          toolbar={{
-            options: ['inline',  'list', 'blockType', 'emoji']
-          }}
+          // toolbar={{
+          //   options: ['inline',  'list', 'blockType', 'emoji']
+          // }}
         />
         <button onClick={(e)=>{SendMessage(e)}} type="button" className="z-20 bottom-16 right-12 relative float-right text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800 px-5 py-2">
           <AiOutlineSend/>
