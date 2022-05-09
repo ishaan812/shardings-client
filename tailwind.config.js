@@ -20,5 +20,7 @@ module.exports = {
 			"100v": "100vh",
 		},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ]
 }

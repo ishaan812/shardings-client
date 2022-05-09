@@ -12,50 +12,35 @@ admin.initializeApp({
 });
 const db= admin.firestore();
 
-app.post("/group",async(req,res)=>{
-    console.log(req.body);
-    const UserData = {
-      Username: req.body.Username,
-    };
-    return db.collection("Users").doc(req.body.ID).set(UserData).then(()=>{
-      console.log("Username added");
-      res.send({msg: "Username added successfully"})
-    })
-})
-
 app.post("/send",async(req,res)=>{
   console.log(req.body);
   let docname= Date.now().toString();
   const MessageData = {
     Username: req.body.Username,
-    Message: req.body.Message
+    Message: req.body.Message,
   };
-  return db.collection("ABCD").doc(docname).set(MessageData).then(()=>{
+  return db.collection(req.body.ID).doc(docname).set(MessageData).then(()=>{
     console.log("Message sent");
     res.send({msg: "Message added successfully"})
   })
 })
 
-app.get("/users",(req,res)=>{
-  db.collection("Users").doc("ABCD").get().then(doc=>{
-    res.send(doc["_fieldsProto"]["Username"]["stringValue"]); 
-    console.log(doc["_fieldsProto"]["Username"]["stringValue"]);
-  })
-})
 
-app.get("/get",async(req,res)=>{
-  const group = db.collection("ABCD");
+app.get("/get/:id",async(req,res)=>{
+  const group = db.collection(req.params.id);
   const snapshot= await group.get();
   dataarray=[]
   snapshot.forEach(doc => {
-    console.log(doc.id, '=>', doc.data()["Username"]);
+    // console.log(doc.id, '=>', doc.data()["Username"],"=>",doc.data());
+    console.log(doc.id,"=>",doc.data());
     let databody={
       Username:doc.data()["Username"],
       Message:doc.data()["Message"],
+      Timestamp :doc.id,
     };
     dataarray.push(databody);
   });
-  console.log(dataarray)
+  // console.log(dataarray)
   res.send(dataarray);
 })
 
